@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "TRV-REQ-.YYYY.-.####",
  "creation": "2026-03-23 14:03:16.381941",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -27,7 +28,10 @@
   "to_location",
   "end_date",
   "advance_required",
-  "advance_amount"
+  "advance_amount",
+  "travel_itinerary_section",
+  "travel_itinerary",
+  "status"
  ],
  "fields": [
   {
@@ -93,7 +97,9 @@
   },
   {
    "fieldname": "section_break_aybc",
-   "fieldtype": "Section Break"
+   "fieldtype": "Section Break",
+   "is_virtual": 1,
+   "label": "Travel Details"
   },
   {
    "fieldname": "purpose",
@@ -165,16 +171,35 @@
    "fieldname": "reporting_manager_name",
    "fieldtype": "Data",
    "label": "Reporting Manager Name"
+  },
+  {
+   "fieldname": "travel_itinerary_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "travel_itinerary",
+   "fieldtype": "Table",
+   "label": "Travel Itinerary",
+   "options": "Travel Itinerary"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nRejected",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-23 15:52:19.206628",
+ "modified": "2026-03-23 20:01:12.418009",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Travel Request",
+ "naming_rule": "Expression",
  "owner": "Administrator",
  "permissions": [
   {

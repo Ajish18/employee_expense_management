@@ -1,0 +1,294 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "EXP-CLM-.YYYY.-.####",
+ "creation": "2026-03-23 16:30:46.476814",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_0o24",
+  "amended_from",
+  "employee_id",
+  "designation",
+  "email",
+  "phone",
+  "column_break_xuzv",
+  "reporting_manager",
+  "reporting_manager_name",
+  "branch",
+  "department",
+  "travel_request_section",
+  "travel_request",
+  "purpose",
+  "from_location",
+  "to_location",
+  "start_date",
+  "end_date",
+  "expense_summary_section",
+  "expense_details",
+  "total_claimed_amount",
+  "total_approved_amount",
+  "advance_and_settlement_section",
+  "advance_taken",
+  "total_expense",
+  "balance_payable",
+  "balance_receivable",
+  "settlement_status",
+  "settlement_remarks",
+  "finance_verification_section",
+  "finance_remarks",
+  "verified_by",
+  "verified_date",
+  "approval_section",
+  "final_approved_by",
+  "final_approval_date",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_break_0o24",
+   "fieldtype": "Section Break",
+   "label": "Employee Details"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Expense Claim",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "employee_id",
+   "fieldtype": "Link",
+   "label": "Employee ID",
+   "options": "Employee Details"
+  },
+  {
+   "fetch_from": "employee_id.designation",
+   "fieldname": "designation",
+   "fieldtype": "Data",
+   "label": "Designation"
+  },
+  {
+   "fetch_from": "employee_id.email",
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fetch_from": "employee_id.mobile_number",
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone",
+   "options": "Phone"
+  },
+  {
+   "fieldname": "column_break_xuzv",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "employee_id.reporting_manager",
+   "fieldname": "reporting_manager",
+   "fieldtype": "Data",
+   "label": "Reporting Manager"
+  },
+  {
+   "fetch_from": "employee_id.reporting_manager_name",
+   "fieldname": "reporting_manager_name",
+   "fieldtype": "Data",
+   "label": "Reporting Manager Name",
+   "translatable": 1
+  },
+  {
+   "fetch_from": "employee_id.branch",
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "label": "Branch"
+  },
+  {
+   "fetch_from": "employee_id.department",
+   "fieldname": "department",
+   "fieldtype": "Data",
+   "label": "Department"
+  },
+  {
+   "fieldname": "travel_request_section",
+   "fieldtype": "Section Break",
+   "label": "Travel Request"
+  },
+  {
+   "fieldname": "travel_request",
+   "fieldtype": "Link",
+   "label": "Travel Request",
+   "options": "Travel Request"
+  },
+  {
+   "fetch_from": "travel_request.purpose",
+   "fieldname": "purpose",
+   "fieldtype": "Small Text",
+   "label": "Purpose"
+  },
+  {
+   "fetch_from": "travel_request.from_location",
+   "fieldname": "from_location",
+   "fieldtype": "Data",
+   "label": "From Location"
+  },
+  {
+   "fetch_from": "travel_request.to_location",
+   "fieldname": "to_location",
+   "fieldtype": "Data",
+   "label": "To Location"
+  },
+  {
+   "fetch_from": "travel_request.start_date",
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "label": "Start Date"
+  },
+  {
+   "fetch_from": "travel_request.end_date",
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "label": "End Date"
+  },
+  {
+   "fieldname": "expense_summary_section",
+   "fieldtype": "Section Break",
+   "label": "Expense Summary"
+  },
+  {
+   "fieldname": "expense_details",
+   "fieldtype": "Table",
+   "label": "Expense Details",
+   "options": "Expense Details"
+  },
+  {
+   "fieldname": "total_claimed_amount",
+   "fieldtype": "Currency",
+   "label": "Total Claimed Amount"
+  },
+  {
+   "fieldname": "total_approved_amount",
+   "fieldtype": "Currency",
+   "label": "Total Approved Amount"
+  },
+  {
+   "fieldname": "advance_and_settlement_section",
+   "fieldtype": "Section Break",
+   "label": "Advance and Settlement"
+  },
+  {
+   "fetch_from": "travel_request.advance_amount",
+   "fieldname": "advance_taken",
+   "fieldtype": "Currency",
+   "label": "Advance Taken"
+  },
+  {
+   "fieldname": "balance_payable",
+   "fieldtype": "Currency",
+   "label": "Balance Payable",
+   "read_only": 1
+  },
+  {
+   "fieldname": "finance_verification_section",
+   "fieldtype": "Section Break",
+   "label": "Finance Verification"
+  },
+  {
+   "fieldname": "finance_remarks",
+   "fieldtype": "Small Text",
+   "label": "Finance Remarks"
+  },
+  {
+   "fieldname": "verified_by",
+   "fieldtype": "Link",
+   "label": "Verified By",
+   "options": "User"
+  },
+  {
+   "fieldname": "verified_date",
+   "fieldtype": "Datetime",
+   "label": "Verified Date"
+  },
+  {
+   "fieldname": "approval_section",
+   "fieldtype": "Section Break",
+   "label": "Approval"
+  },
+  {
+   "fieldname": "final_approved_by",
+   "fieldtype": "Link",
+   "label": "Final Approved By",
+   "options": "User"
+  },
+  {
+   "fieldname": "final_approval_date",
+   "fieldtype": "Datetime",
+   "label": "Final Approval Date"
+  },
+  {
+   "fieldname": "total_expense",
+   "fieldtype": "Currency",
+   "label": "Total Expense",
+   "read_only": 1
+  },
+  {
+   "fieldname": "balance_receivable",
+   "fieldtype": "Currency",
+   "label": "Balance Receivable",
+   "options": "Pending\nPayable\nReceivable\nSettled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "settlement_status",
+   "fieldtype": "Select",
+   "label": "Settlement Status"
+  },
+  {
+   "fieldname": "settlement_remarks",
+   "fieldtype": "Small Text",
+   "label": "Settlement Remarks"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nSettled\nRejected"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-23 18:16:27.030495",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Expense Claim",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}
