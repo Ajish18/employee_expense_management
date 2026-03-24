@@ -21,7 +21,7 @@ def manager_approval(name):
 	if doc.email:
 		frappe.sendmail(
 			recipients=[doc.email],
-			subject="Travel Request Rejected",
+			subject="Travel Request Forward",
 			message=f"""
             <p>Dear {doc.employee_name},</p>
             <p>
@@ -36,7 +36,7 @@ def manager_approval(name):
             Reporting Manager,<br>
             <b>{doc.reporting_manager_name}</b>
             </p>
-                        """,
+            """,
 		)
 
 
@@ -44,6 +44,9 @@ def manager_approval(name):
 def manager_reject(name):
 	frappe.db.set_value("Travel Request", name, "status", "Rejected")
 	doc = frappe.get_doc("Travel Request", name)
+    doc.save()
+	doc.submit()
+	doc.cancel()
 	frappe.sendmail(
 		recipients=[doc.email],
 		subject="Travel Request Rejected",

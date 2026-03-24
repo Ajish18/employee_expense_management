@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
+ "autoname": "field:category_name",
  "creation": "2026-03-23 16:23:07.709942",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -58,17 +59,19 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Category Name",
-   "reqd": 1
+   "reqd": 1,
+   "unique": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_tree": 1,
  "links": [],
- "modified": "2026-03-23 16:29:02.026940",
+ "modified": "2026-03-24 14:47:12.044447",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Expense Category",
+ "naming_rule": "By fieldname",
  "nsm_parent_field": "parent_expense_category",
  "owner": "Administrator",
  "permissions": [
