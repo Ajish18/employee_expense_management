@@ -51,7 +51,8 @@ def manager_reject(name):
             """
         )
 
-def job_card_query(user):
+
+def travel_request_query(user):
     roles = frappe.get_roles(user)
     if "System Manager" in roles or user == "Administrator":
         return
@@ -59,4 +60,7 @@ def job_card_query(user):
         return f"""
         `tabTravel Request`.reporting_manager='{user}'
         """
+    if "Finance Manager" in roles:
+        return f"""
+        `tabTravel Request`.status='Pending Finance Verification' """
     return ""

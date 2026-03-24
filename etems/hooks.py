@@ -249,9 +249,6 @@ app_license = "mit"
 # ------------
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
-
-
-
 permission_query_conditions = {
-    "Travel Request": "etems.expense_management.doctype.travel_request.travel_request.job_card_query"
+    "Travel Request": "etems.expense_management.doctype.travel_request.travel_request.travel_request_query"
 }
