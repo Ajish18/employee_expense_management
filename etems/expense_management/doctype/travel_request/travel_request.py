@@ -118,7 +118,6 @@ def travel_request_query(user):
         `tabTravel Request`.reporting_manager='{user}'
         """
     if "Finance Manager" in roles:
-        return f"""
+        return """
         `tabTravel Request`.status IN ('Pending Finance Verification', 'Cancelled') """
     return ""
-    
