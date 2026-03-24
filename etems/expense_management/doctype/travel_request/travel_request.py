@@ -24,14 +24,20 @@ def manager_approval(name):
             recipients=[doc.email],
             subject="Travel Request Rejected",
             message=f"""
-            Dear {doc.employee_name},
-            Your travel request {doc.name} has been sent for finace verification by your reporting manager.
+            <p>Dear {doc.employee_name},</p>
+            <p>
+            Your Travel Request <b>{doc.name}</b> has been sent for 
+            <b>Finance Verification</b> by your Reporting Manager.
+            </p>
+            <p>
             Please contact your manager for more details.
-
-            Regards,
-            Reporting Manager,
-            {doc.reporting_manager_name}
-            """
+            </p>
+            <p>
+            Regards,<br>
+            Reporting Manager,<br>
+            <b>{doc.reporting_manager_name}</b>
+            </p>
+                        """
         )
 
 @frappe.whitelist()
@@ -42,12 +48,63 @@ def manager_reject(name):
             recipients=[doc.email],
             subject="Travel Request Rejected",
             message=f"""
-            Dear {doc.employee_name},
-            Your travel request {doc.name} has been rejected by your reporting manager.
+            <p>Dear {doc.employee_name},</p>
+            <p>
+            Your Travel Request <b>{doc.name}</b> has been Rejected by your Reporting Manager.
+            </p>
+            <p>
             Please contact your manager for more details.
-            Regards,
-            Reporting Manager,
-            {doc.reporting_manager_name}
+            </p>
+            <p>
+            Regards,<br>
+            Reporting Manager,<br>
+            <b>{doc.reporting_manager_name}</b>
+            </p>
+            """
+        )
+
+@frappe.whitelist()
+def finance_manager_reject(name,reason):
+    frappe.db.set_value("Travel Request", name, "status", "Cancelled")
+    doc=frappe.get_doc("Travel Request", name)
+    doc.cancel_reason=reason
+    doc.save()
+    doc.submit()
+    doc.cancel()
+    frappe.sendmail(
+            recipients=[doc.email],
+            subject="Travel Request Rejected",
+            message=f"""
+            Dear {doc.employee_name},
+            Your Travel Request <b>{doc.name}</b> has been rejected/cancelled by the Finance Manager.
+            <b>Reason:</b> {reason}
+            Please contact the Finance team for more details.
+            Regards,<br>
+            Finance Team
+            """
+        )
+
+@frappe.whitelist()
+def finance_manager_approval(name):
+    frappe.db.set_value("Travel Request", name, "status", "Approved")
+    doc=frappe.get_doc("Travel Request", name)
+    doc.submit()
+    if doc.email:
+        frappe.sendmail(
+            recipients=[doc.email],
+            subject="Travel Request Rejected",
+            message=f"""
+            <p>Dear {doc.employee_name},</p>
+            <p>
+            Your Travel Request <b>{doc.name}</b> has been approved by the Finance Manager. 
+            </p>
+            <p>
+            Please contact your manager for more details.
+            </p>
+            <p>
+            Regards,<br>
+            Finace Team,<br>
+            </p>
             """
         )
 
@@ -62,5 +119,5 @@ def travel_request_query(user):
         """
     if "Finance Manager" in roles:
         return f"""
-        `tabTravel Request`.status='Pending Finance Verification' """
+        `tabTravel Request`.status IN ('Pending Finance Verification', 'Cancelled') """
     return ""
