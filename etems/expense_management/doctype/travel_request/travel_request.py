@@ -121,3 +121,4 @@ def travel_request_query(user):
         return f"""
         `tabTravel Request`.status IN ('Pending Finance Verification', 'Cancelled') """
     return ""
+    
