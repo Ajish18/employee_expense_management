@@ -75,7 +75,7 @@ frappe.ui.form.on("Travel Request", {
 					},
 					callback: function () {
 						frm.reload_doc();
-					},
+					 },
 				});
 			});
 		}
