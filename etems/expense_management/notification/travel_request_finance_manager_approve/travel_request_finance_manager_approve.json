@@ -1,0 +1,35 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.status==\"Approved\"",
+ "condition_type": "Python",
+ "creation": "2026-03-25 16:46:51.968450",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Travel Request",
+ "enabled": 0,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Dear {{ doc.employee_name }},<br><br></p>\n\n<p>Your Travel Request <b>{{ doc.name }}</b> has been approved by your Finance Manager.<br></p>\n\n<p>Kindly check the document, for any additional info contact your Reporting Manager.<br><br></p>\n\n<p><p>Regards,<br>\nFinance Team</p>\n",
+ "message_type": "Markdown",
+ "minutes_offset": 0,
+ "modified": "2026-03-26 00:31:42.560845",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Travel Request Finance Manager Approve",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "Support",
+ "sender_email": "ajishbenz@gmail.com",
+ "subject": "Travel Request has been Approved by Finance Manager",
+ "value_changed": "workflow_state"
+}

@@ -2,45 +2,41 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on("Expense Claim", {
-	setup(frm) {
+    setup(frm) {
+        if(frappe.session.user!=="Administrator"){
+            frm.set_query("employee_id", function(){
+                return{
+                    filters: {
+                        user_id:frappe.session.user,
+                    }
+                }
+            })
+        };
         frm.set_query("category","expense_details", function(){
             return{
                 filters: {
                     is_group:0,
                 }
             }
-        })
-	},
-    refresh(frm){
-        if (
-			frm.doc.status === "Pending Manager Approval" &&
-			frappe.user.has_role("Reporting Manager") &&
-			frm.doc.docstatus !== 1
-		) {
-			frm.add_custom_button("Approve", () => {
-				frappe.call({
-					method: "etems.expense_management.doctype.expense_claim.expense_claim.manager_approval",
-					args: {
-						name: frm.doc.name,
-					},
-					callback: function () {
-						frm.reload_doc();
-					},
-				});
-			});
-
-			frm.add_custom_button("Reject", () => {
-				frappe.call({
-					method: "etems.expense_management.doctype.travel_request.travel_request.manager_reject",
-					args: {
-						name: frm.doc.name,
-					},
-					callback: function () {
-						frm.reload_doc();
-					},
-				});
-			});
-		}
+        }),
+        frm.set_query("travel_request", function(){
+            return{
+                filters: {
+                    status:"Approved",
+                }
+            }
+        });
+    },
+    refresh(frm) {
+        if (frm.doc.workflow_state === "Verified" && !frm.doc.verified_by) {
+            frm.set_value("verified_byuser_id", frappe.session.user)
+        }
+        if (frappe.user.has_role("Employee")) {
+            frm.set_df_property("total_approved_amount", "read_only", 1);
+        }
+        if (frm.doc.workflow_state === "Approved" && !frm.doc.approved_by) {
+            frm.set_value("approved_byuser_id", frappe.session.user)
+        }
     }
 });
 

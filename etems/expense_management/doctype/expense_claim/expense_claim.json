@@ -37,12 +37,14 @@
   "settlement_remarks",
   "finance_verification_section",
   "finance_remarks",
-  "verified",
+  "verified_byuser_id",
   "verified_by",
   "verified_date",
   "approval_section",
+  "approved_byuser_id",
   "final_approved_by",
   "final_approval_date",
+  "section_break_eptz",
   "status"
  ],
  "fields": [
@@ -197,6 +199,7 @@
    "label": "Total Approved Amount"
   },
   {
+   "depends_on": "eval:doc.status==\"Pending Manager Approval\" \n|| doc.status==\"Pending Finance Verification\" \n|| doc.status==\"Verified\" \n|| doc.status==\"Approved\"\n|| doc.status==\"Settled\"",
    "fieldname": "advance_and_settlement_section",
    "fieldtype": "Section Break",
    "label": "Advance and Settlement"
@@ -216,7 +219,7 @@
    "read_only": 1
   },
   {
-   "depends_on": "eval:doc.status==\"Pending Finance Verification\"",
+   "depends_on": "eval:doc.status==\"Pending Finance Verification\" \n|| doc.status==\"Verified\" \n|| doc.status==\"Approved\"\n|| doc.status==\"Settled\"",
    "fieldname": "finance_verification_section",
    "fieldtype": "Section Break",
    "label": "Finance Verification"
@@ -227,28 +230,35 @@
    "label": "Finance Remarks"
   },
   {
+   "fetch_from": "verified_byuser_id.full_name",
+   "fetch_if_empty": 1,
    "fieldname": "verified_by",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Verified By",
    "options": "User"
   },
   {
+   "default": "Now",
    "fieldname": "verified_date",
    "fieldtype": "Datetime",
    "label": "Verified Date"
   },
   {
+   "depends_on": "eval:doc.status==\"Verified\"\n|| doc.status==\"Approved\"\n|| doc.status==\"Settled\"",
    "fieldname": "approval_section",
    "fieldtype": "Section Break",
+   "hide_border": 1,
    "label": "Approval"
   },
   {
+   "fetch_from": "approved_byuser_id.full_name",
    "fieldname": "final_approved_by",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Final Approved By",
    "options": "User"
   },
   {
+   "default": "Now",
    "fieldname": "final_approval_date",
    "fieldtype": "Datetime",
    "label": "Final Approval Date"
@@ -265,7 +275,7 @@
    "fieldname": "settlement_status",
    "fieldtype": "Select",
    "label": "Settlement Status",
-   "options": "Pending\nPayable\nReceivable\nSettled",
+   "options": "Pending\nPayable\nReceivable\nSettled\nNot Required",
    "read_only": 1
   },
   {
@@ -277,8 +287,9 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nSettled\nRejected",
-   "read_only": 1
+   "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nVerified\nSettled\nRejected",
+   "read_only": 1,
+   "sort_options": 1
   },
   {
    "fieldname": "total_approved_expense",
@@ -287,17 +298,30 @@
    "read_only": 1
   },
   {
-   "default": "0",
-   "fieldname": "verified",
-   "fieldtype": "Check",
-   "label": "Verified"
+   "fieldname": "verified_byuser_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Verified By(user id)",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_eptz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "approved_byuser_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Approved_by(User_id)",
+   "options": "User"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-24 18:03:21.403580",
+ "modified": "2026-03-26 15:56:34.575749",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Expense Claim",
