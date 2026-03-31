@@ -39,3 +39,25 @@ This app can use GitHub Actions for CI. The following workflows are configured:
 
 mit
 # employee_expense_management
+
+
+
+ETEMS - Employee Travel and Expense MAnagement System
+
+Workflow:
+
+Travel Request:
+The employee first creates the Travel Request, before their Travel and can claim the advance amount.
+
+The Employee Creates a Travel Request -> It will be first approved or rejected by their repective reporting manager -> the finance manager then approve/reject if approved advance is given else not.
+
+Expense Claim:
+The employee after Travel creates the expense claims, the amount they spent on what and also include their travel request. Employee fills all the required details and click submit action.
+
+The Reporting manager verifies it and approve/reject it.
+
+If approved the status will be in Pending Finance verification, the finance user verifies it, whether the bill are submitted or not he checks itand enter the approved amount. And clicks verified.
+The advance amount along with the ampproved amount are calculated and the balance payable and balance receivable are set.
+The finance user has the right to reject the expense claim too.
+
+If verified, the status will be in verified and the finance manager will finally settle or receive the amount, the payment transaction will be done in Expense payable or Expense Receivable doctype. Once the amount is settled completely, it will be state becomes settled.

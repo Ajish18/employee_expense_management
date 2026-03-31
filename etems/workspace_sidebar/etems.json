@@ -1,0 +1,83 @@
+{
+ "app": "etems",
+ "creation": "2026-03-29 23:45:53.905016",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "airplay",
+ "idx": 0,
+ "items": [
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Etems Dashboard",
+   "link_to": "Etems Dashboard",
+   "link_type": "Dashboard",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Travel Request",
+   "link_to": "Travel Request",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Expense Claim",
+   "link_to": "Expense Claim",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Expense Claim Summary",
+   "link_to": "Expense Claim Summary",
+   "link_type": "Report",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Expense Category-Amount",
+   "link_to": "Expense Category-Amount",
+   "link_type": "Report",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Branch Wise Expense Report",
+   "link_to": "Branch Wise Expense Report",
+   "link_type": "Report",
+   "show_arrow": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-03-29 23:52:18.469364",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "ETEMS",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "ETEMS"
+}

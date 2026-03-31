@@ -33,6 +33,7 @@
   "total_approved_expense",
   "balance_payable",
   "balance_receivable",
+  "amount_settled",
   "settlement_status",
   "settlement_remarks",
   "finance_verification_section",
@@ -196,7 +197,8 @@
    "default": "0",
    "fieldname": "total_approved_amount",
    "fieldtype": "Currency",
-   "label": "Total Approved Amount"
+   "label": "Total Approved Amount",
+   "read_only": 1
   },
   {
    "depends_on": "eval:doc.status==\"Pending Manager Approval\" \n|| doc.status==\"Pending Finance Verification\" \n|| doc.status==\"Verified\" \n|| doc.status==\"Approved\"\n|| doc.status==\"Settled\"",
@@ -315,13 +317,19 @@
    "hidden": 1,
    "label": "Approved_by(User_id)",
    "options": "User"
+  },
+  {
+   "default": "0",
+   "fieldname": "amount_settled",
+   "fieldtype": "Currency",
+   "label": "Amount Settled"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-26 15:56:34.575749",
+ "modified": "2026-03-30 18:40:35.994672",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Expense Claim",

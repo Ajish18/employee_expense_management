@@ -78,4 +78,31 @@ def get_data(filters):
 
     The report data is a list of rows, with each row being a list of cell values.
     """
-    pass
+
+    conditions = ""
+
+    if filters.get("from_date"):
+        conditions += f" AND creation >= '{filters.get('from_date')}'"
+
+    if filters.get("to_date"):
+        conditions += f" AND creation <= '{filters.get('to_date')}'"
+
+    data = frappe.db.sql(f"""
+        SELECT
+            branch,
+            COUNT(travel_request) AS travel_count,
+            COUNT(name) AS expense_count,
+            0 AS estimated_amount,
+            SUM(total_approved_amount) AS approved_amount,
+            SUM(advance_taken) AS advance_amount,
+            SUM(balance_payable) AS payable_amount,
+            SUM(balance_receivable) AS receivable_amount,
+            SUM(
+                IF(status IN ('Draft', 'Pending Manager Approval', 'Pending Finance Verification'), 1, 0)
+            ) AS pending
+        FROM `tabExpense Claim`
+        WHERE 1=1 {conditions}
+        GROUP BY branch
+    """, as_dict=True)
+
+    return data

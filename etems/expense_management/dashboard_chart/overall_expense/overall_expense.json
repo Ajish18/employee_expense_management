@@ -1,0 +1,39 @@
+{
+ "chart_name": "Overall Expense",
+ "chart_type": "Report",
+ "creation": "2026-03-29 21:23:43.097237",
+ "currency": "INR",
+ "docstatus": 0,
+ "doctype": "Dashboard Chart",
+ "dynamic_filters_json": "{}",
+ "filters_json": "{}",
+ "group_by_type": "Count",
+ "idx": 0,
+ "is_public": 1,
+ "is_standard": 1,
+ "modified": "2026-03-29 21:23:54.437195",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Overall Expense",
+ "number_of_groups": 0,
+ "owner": "Administrator",
+ "report_name": "Expense Category-Amount",
+ "roles": [],
+ "show_values_over_chart": 1,
+ "time_interval": "Yearly",
+ "timeseries": 0,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "x_field": "category",
+ "y_axis": [
+  {
+   "color": "#29CD42",
+   "y_field": "total_claimed"
+  },
+  {
+   "color": "#4F9DD9",
+   "y_field": "total_approved"
+  }
+ ]
+}

@@ -13,9 +13,9 @@ IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
 
-class IntegrationTestPolicySettings(IntegrationTestCase):
+class IntegrationTestExpenseReceivable(IntegrationTestCase):
 	"""
-	Integration tests for PolicySettings.
+	Integration tests for ExpenseReceivable.
 	Use this class for testing interactions between multiple components.
 	"""
 

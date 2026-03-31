@@ -158,7 +158,7 @@ def create_expense_claim_workflow():
                 "doc_status": 0,
                 "update_field": "status",
                 "update_value": "Verified",
-                "allow_edit": "Finance Manager"
+                "allow_edit": "Finance User"
             },
             {
                 "state": "Approved",
@@ -179,8 +179,22 @@ def create_expense_claim_workflow():
                 "doc_status": 1,
                 "update_field": "status",
                 "update_value": "Rejected",
-                "allow_edit": "System Manager"
-            }
+                "allow_edit": "Reporting Manager"
+            },
+            {
+                "state": "Rejected",
+                "doc_status": 1,
+                "update_field": "status",
+                "update_value": "Rejected",
+                "allow_edit": "Finance Manager"
+            },
+            {
+                "state": "Rejected",
+                "doc_status": 1,
+                "update_field": "status",
+                "update_value": "Rejected",
+                "allow_edit": "Finance User"
+            },
         ],
         "transitions":[
             {

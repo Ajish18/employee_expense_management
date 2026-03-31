@@ -7,12 +7,16 @@ from frappe.model.document import Document
 
 class ExpenseClaim(Document):
     def before_save(self):
-        if self.status=="Pending Manager Approval":
+        if self.status=="Pending Finance Verification":
             self.validate_advance_settlement()
+        # if self.status=="Settled":
+        #     if self.amount_settled==self.total_approved_amount:
+        #         self.settlement_status="Settled"
+        #         self.status="Settled"
+        #         self.workflow_state="Approved"
+
     def on_update(self):
         self.update_mail_notification()
-        if self.status=="Settled":
-            self.settlement_status="Settled"
         
     def validate_advance_settlement(self):
         self.total_approved_expense=self.total_approved_amount

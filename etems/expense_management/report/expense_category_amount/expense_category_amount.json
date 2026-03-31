@@ -1,0 +1,44 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-03-29 21:17:25.676775",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-03-29 21:20:10.797780",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Expense Category-Amount",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n    ed.category AS \"Category\",\n    SUM(ed.amount) AS \"Total Claimed\",\n    SUM(ec.total_approved_amount) AS \"Total Approved\"\n\nFROM `tabExpense Claim` ec\n\nJOIN `tabExpense Details` ed\nON ed.parent = ec.name\n\nGROUP BY ed.category;",
+ "ref_doctype": "Expense Claim",
+ "report_name": "Expense Category-Amount",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Employee"
+  },
+  {
+   "role": "Reporting Manager"
+  },
+  {
+   "role": "Finance Manager"
+  },
+  {
+   "role": "Finance User"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}
