@@ -26,20 +26,24 @@
    "fetch_from": "user_id.full_name",
    "fieldname": "employee_name",
    "fieldtype": "Data",
-   "label": "Employee Name"
+   "label": "Employee Name",
+   "read_only": 1
   },
   {
    "fetch_from": "user_id.email",
    "fieldname": "email",
    "fieldtype": "Data",
-   "label": "Email"
+   "label": "Email",
+   "read_only": 1
   },
   {
-   "fetch_from": "user_id.mobile_no",
+   "fetch_from": "user_id.phone",
+   "fetch_if_empty": 1,
    "fieldname": "mobile_number",
    "fieldtype": "Data",
    "label": "Mobile Number",
-   "options": "Phone"
+   "options": "Phone",
+   "read_only": 1
   },
   {
    "fieldname": "branch",
@@ -74,7 +78,7 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-03-23 15:01:13.395243",
+ "modified": "2026-03-23 22:40:24.814891",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Employee Details",

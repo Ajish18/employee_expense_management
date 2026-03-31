@@ -1,0 +1,51 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2026-03-23 16:20:40.179475",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "advance_taken",
+  "amount_spent",
+  "balance_payable_or_refundable",
+  "settlement_remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "advance_taken",
+   "fieldtype": "Currency",
+   "label": "Advance Taken"
+  },
+  {
+   "fieldname": "amount_spent",
+   "fieldtype": "Currency",
+   "label": "Amount Spent"
+  },
+  {
+   "fieldname": "balance_payable_or_refundable",
+   "fieldtype": "Currency",
+   "label": "Balance Payable or Refundable"
+  },
+  {
+   "fieldname": "settlement_remarks",
+   "fieldtype": "Small Text",
+   "label": "Settlement Remarks"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-23 16:21:59.171393",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Settlement Details",
+ "owner": "Administrator",
+ "permissions": [],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

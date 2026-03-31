@@ -11,9 +11,9 @@ EXTRA_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 IGNORE_TEST_RECORD_DEPENDENCIES = []  # eg. ["User"]
 
 
-class IntegrationTestTravelRequest(IntegrationTestCase):
+class IntegrationTestExpenseCategory(IntegrationTestCase):
 	"""
-	Integration tests for TravelRequest.
+	Integration tests for ExpenseCategory.
 	Use this class for testing interactions between multiple components.
 	"""
 
