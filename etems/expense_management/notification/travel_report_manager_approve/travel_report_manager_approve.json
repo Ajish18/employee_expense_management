@@ -1,0 +1,36 @@
+{
+ "attach_files": "",
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.workflow_state == \"Pending Finance Verification\"",
+ "condition_type": "Python",
+ "creation": "2026-03-25 15:50:10.027557",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Travel Request",
+ "enabled": 0,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Dear {{ doc.employee_name }},</p><br>\n<p>Your Travel Request <b>{{ doc.name }}</b> has been approved by your Reporting Manager.<br></p>\n<p>It is now sent for Finance Verification.<br><br></p>\n<p>Regards,<br>\nReporting Manager<br>\n{{doc.reporting_manager_name}}</p>\n",
+ "message_type": "HTML",
+ "minutes_offset": 0,
+ "modified": "2026-03-26 00:31:47.240421",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Travel Report Manager Approve",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email",
+   "receiver_by_role": ""
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 1,
+ "sender": "Support",
+ "sender_email": "ajishbenz@gmail.com",
+ "subject": "Travel Request has been Approved by Manager",
+ "value_changed": "workflow_state"
+}

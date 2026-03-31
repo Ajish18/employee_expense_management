@@ -30,18 +30,21 @@
   "total_approved_amount",
   "advance_and_settlement_section",
   "advance_taken",
-  "total_expense",
+  "total_approved_expense",
   "balance_payable",
   "balance_receivable",
   "settlement_status",
   "settlement_remarks",
   "finance_verification_section",
   "finance_remarks",
+  "verified_byuser_id",
   "verified_by",
   "verified_date",
   "approval_section",
+  "approved_byuser_id",
   "final_approved_by",
   "final_approval_date",
+  "section_break_eptz",
   "status"
  ],
  "fields": [
@@ -63,17 +66,21 @@
   {
    "fieldname": "employee_id",
    "fieldtype": "Link",
+   "in_list_view": 1,
    "label": "Employee ID",
-   "options": "Employee Details"
+   "options": "Employee Details",
+   "reqd": 1
   },
   {
    "fetch_from": "employee_id.designation",
    "fieldname": "designation",
    "fieldtype": "Data",
-   "label": "Designation"
+   "label": "Designation",
+   "read_only": 1
   },
   {
    "fetch_from": "employee_id.email",
+   "fetch_if_empty": 1,
    "fieldname": "email",
    "fieldtype": "Data",
    "label": "Email",
@@ -81,6 +88,7 @@
   },
   {
    "fetch_from": "employee_id.mobile_number",
+   "fetch_if_empty": 1,
    "fieldname": "phone",
    "fieldtype": "Data",
    "label": "Phone",
@@ -94,26 +102,29 @@
    "fetch_from": "employee_id.reporting_manager",
    "fieldname": "reporting_manager",
    "fieldtype": "Data",
-   "label": "Reporting Manager"
+   "label": "Reporting Manager",
+   "read_only": 1
   },
   {
    "fetch_from": "employee_id.reporting_manager_name",
    "fieldname": "reporting_manager_name",
    "fieldtype": "Data",
    "label": "Reporting Manager Name",
-   "translatable": 1
+   "read_only": 1
   },
   {
    "fetch_from": "employee_id.branch",
    "fieldname": "branch",
    "fieldtype": "Data",
-   "label": "Branch"
+   "label": "Branch",
+   "read_only": 1
   },
   {
    "fetch_from": "employee_id.department",
    "fieldname": "department",
    "fieldtype": "Data",
-   "label": "Department"
+   "label": "Department",
+   "read_only": 1
   },
   {
    "fieldname": "travel_request_section",
@@ -124,37 +135,44 @@
    "fieldname": "travel_request",
    "fieldtype": "Link",
    "label": "Travel Request",
-   "options": "Travel Request"
+   "options": "Travel Request",
+   "reqd": 1
   },
   {
    "fetch_from": "travel_request.purpose",
+   "fetch_if_empty": 1,
    "fieldname": "purpose",
    "fieldtype": "Small Text",
-   "label": "Purpose"
+   "label": "Purpose",
+   "reqd": 1
   },
   {
    "fetch_from": "travel_request.from_location",
    "fieldname": "from_location",
    "fieldtype": "Data",
-   "label": "From Location"
+   "label": "From Location",
+   "read_only": 1
   },
   {
    "fetch_from": "travel_request.to_location",
    "fieldname": "to_location",
    "fieldtype": "Data",
-   "label": "To Location"
+   "label": "To Location",
+   "read_only": 1
   },
   {
    "fetch_from": "travel_request.start_date",
    "fieldname": "start_date",
    "fieldtype": "Date",
-   "label": "Start Date"
+   "label": "Start Date",
+   "read_only": 1
   },
   {
    "fetch_from": "travel_request.end_date",
    "fieldname": "end_date",
    "fieldtype": "Date",
-   "label": "End Date"
+   "label": "End Date",
+   "read_only": 1
   },
   {
    "fieldname": "expense_summary_section",
@@ -165,19 +183,23 @@
    "fieldname": "expense_details",
    "fieldtype": "Table",
    "label": "Expense Details",
-   "options": "Expense Details"
+   "options": "Expense Details",
+   "reqd": 1
   },
   {
    "fieldname": "total_claimed_amount",
    "fieldtype": "Currency",
-   "label": "Total Claimed Amount"
+   "label": "Total Claimed Amount",
+   "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "total_approved_amount",
    "fieldtype": "Currency",
    "label": "Total Approved Amount"
   },
   {
+   "depends_on": "eval:doc.status==\"Pending Manager Approval\" \n|| doc.status==\"Pending Finance Verification\" \n|| doc.status==\"Verified\" \n|| doc.status==\"Approved\"\n|| doc.status==\"Settled\"",
    "fieldname": "advance_and_settlement_section",
    "fieldtype": "Section Break",
    "label": "Advance and Settlement"
@@ -186,15 +208,18 @@
    "fetch_from": "travel_request.advance_amount",
    "fieldname": "advance_taken",
    "fieldtype": "Currency",
-   "label": "Advance Taken"
+   "label": "Advance Taken",
+   "read_only": 1
   },
   {
+   "default": "0",
    "fieldname": "balance_payable",
    "fieldtype": "Currency",
    "label": "Balance Payable",
    "read_only": 1
   },
   {
+   "depends_on": "eval:doc.status==\"Pending Finance Verification\" \n|| doc.status==\"Verified\" \n|| doc.status==\"Approved\"\n|| doc.status==\"Settled\"",
    "fieldname": "finance_verification_section",
    "fieldtype": "Section Break",
    "label": "Finance Verification"
@@ -205,49 +230,53 @@
    "label": "Finance Remarks"
   },
   {
+   "fetch_from": "verified_byuser_id.full_name",
+   "fetch_if_empty": 1,
    "fieldname": "verified_by",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Verified By",
    "options": "User"
   },
   {
+   "default": "Now",
    "fieldname": "verified_date",
    "fieldtype": "Datetime",
    "label": "Verified Date"
   },
   {
+   "depends_on": "eval:doc.status==\"Verified\"\n|| doc.status==\"Approved\"\n|| doc.status==\"Settled\"",
    "fieldname": "approval_section",
    "fieldtype": "Section Break",
+   "hide_border": 1,
    "label": "Approval"
   },
   {
+   "fetch_from": "approved_byuser_id.full_name",
    "fieldname": "final_approved_by",
-   "fieldtype": "Link",
+   "fieldtype": "Data",
    "label": "Final Approved By",
    "options": "User"
   },
   {
+   "default": "Now",
    "fieldname": "final_approval_date",
    "fieldtype": "Datetime",
    "label": "Final Approval Date"
   },
   {
-   "fieldname": "total_expense",
-   "fieldtype": "Currency",
-   "label": "Total Expense",
-   "read_only": 1
-  },
-  {
+   "default": "0",
    "fieldname": "balance_receivable",
    "fieldtype": "Currency",
    "label": "Balance Receivable",
-   "options": "Pending\nPayable\nReceivable\nSettled",
    "read_only": 1
   },
   {
+   "default": "Pending",
    "fieldname": "settlement_status",
    "fieldtype": "Select",
-   "label": "Settlement Status"
+   "label": "Settlement Status",
+   "options": "Pending\nPayable\nReceivable\nSettled\nNot Required",
+   "read_only": 1
   },
   {
    "fieldname": "settlement_remarks",
@@ -258,14 +287,41 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nSettled\nRejected"
+   "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nVerified\nSettled\nRejected",
+   "read_only": 1,
+   "sort_options": 1
+  },
+  {
+   "fieldname": "total_approved_expense",
+   "fieldtype": "Currency",
+   "label": "Total Approved Expense",
+   "read_only": 1
+  },
+  {
+   "fieldname": "verified_byuser_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Verified By(user id)",
+   "options": "User",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_eptz",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "approved_byuser_id",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Approved_by(User_id)",
+   "options": "User"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-23 18:16:27.030495",
+ "modified": "2026-03-26 15:56:34.575749",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Expense Claim",
