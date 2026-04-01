@@ -31,7 +31,8 @@
   "advance_amount",
   "travel_itinerary_section",
   "travel_itinerary",
-  "status"
+  "status",
+  "expense_claimed"
  ],
  "fields": [
   {
@@ -197,13 +198,19 @@
    "label": "Status",
    "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nRejected",
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "expense_claimed",
+   "fieldtype": "Check",
+   "label": "Expense Claimed"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-25 13:55:56.681045",
+ "modified": "2026-03-31 16:01:41.639292",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Travel Request",

@@ -26,6 +26,14 @@ frappe.ui.form.on("Expense Claim", {
                 }
             }
         });
+        frm.set_query("travel_request",function(){
+            return{
+                filters: {
+                    expense_claimed: 0,
+                    status: "Approved",
+                }
+            }
+        })
     },
     refresh(frm) {
         if (frm.doc.workflow_state === "Verified" && !frm.doc.verified_by) {

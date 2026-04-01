@@ -45,6 +45,7 @@
   "approved_byuser_id",
   "final_approved_by",
   "final_approval_date",
+  "approver_remarks",
   "section_break_eptz",
   "status"
  ],
@@ -323,13 +324,18 @@
    "fieldname": "amount_settled",
    "fieldtype": "Currency",
    "label": "Amount Settled"
+  },
+  {
+   "fieldname": "approver_remarks",
+   "fieldtype": "Small Text",
+   "label": "Approver Remarks"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-30 18:40:35.994672",
+ "modified": "2026-04-01 12:43:24.564804",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Expense Claim",

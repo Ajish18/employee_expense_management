@@ -252,18 +252,27 @@ app_license = "mit"
 permission_query_conditions = {
 	"Travel Request": "etems.expense_management.doctype.travel_request.travel_request.travel_request_query"
 }
-# fixtures=[
-# 	{
-# 		"doctype":"Role",
-#         "filters":[
-#             ["name", "in", ["Employee","Reporting Manager","Finance Manager", "Finance User","Auditor"]]
-# 		]
-# 	},
-# 	{
-# 		"doctype":"Custom DocPerm"
-# 	}
+fixtures=[
+	# {
+	# 	"doctype":"Role",
+    #     "filters":[
+    #         ["name", "in", ["Employee","Reporting Manager","Finance Manager", "Finance User","Auditor"]]
+	# 	]
+	# },
+	{
+		"doctype":"Custom DocPerm",
+	},
+    {
+		"doctype":"Expense Category",
+	},
+    {
+		"doctype":"Department",
+	},
+    {
+		"doctype":"Branch",
+	}
 
-# ]
+]
 
 after_install = "etems.install.after_install"
 

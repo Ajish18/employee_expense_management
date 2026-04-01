@@ -14,3 +14,4 @@ class ExpenseReceivable(Document):
 			frappe.db.set_value("Expense Claim", self.expense_claim, "settlement_status", "Settled")
 			frappe.db.set_value("Expense Claim", self.expense_claim, "status", "Settled")
 			frappe.db.set_value("Expense Claim", self.expense_claim, "workflow_state", "Settled")
+			frappe.db.set_value("Travel Request",self.expense_claimed,"expense_claimed",1)
