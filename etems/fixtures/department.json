@@ -1,0 +1,26 @@
+[
+ {
+  "department_name": "Consultant",
+  "docstatus": 0,
+  "doctype": "Department",
+  "modified": "2026-03-23 14:57:32.128844",
+  "name": "Consultant",
+  "number_of_employees": 1
+ },
+ {
+  "department_name": "Development",
+  "docstatus": 0,
+  "doctype": "Department",
+  "modified": "2026-03-23 14:57:47.104213",
+  "name": "Development",
+  "number_of_employees": 12
+ },
+ {
+  "department_name": "QA",
+  "docstatus": 0,
+  "doctype": "Department",
+  "modified": "2026-03-23 14:57:58.100034",
+  "name": "QA",
+  "number_of_employees": 10
+ }
+]

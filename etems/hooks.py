@@ -253,16 +253,36 @@ permission_query_conditions = {
 	"Travel Request": "etems.expense_management.doctype.travel_request.travel_request.travel_request_query"
 }
 fixtures=[
+	# {
+	# 	"doctype":"Role",
+    #     "filters":[
+    #         ["name", "in", ["Employee","Reporting Manager","Finance Manager", "Finance User","Auditor"]]
+	# 	]
+	# },
 	{
-		"doctype":"Role",
-        "filters":[
-            ["name", "in", ["Employee","Reporting Manager","Finance Manager", "Finance User","Auditor"]]
-		]
+		"doctype":"Custom DocPerm",
 	},
-	{
-		"doctype":"Custom DocPerm"
+    {
+		"doctype":"Expense Category",
+	},
+    {
+		"doctype":"Department",
+	},
+    {
+		"doctype":"Branch",
 	}
 
 ]
 
 after_install = "etems.install.after_install"
+
+scheduler_events = {
+	"daily": [
+		"etems.schedulers.settlement_remainders"
+	],
+    "cron":{
+        "25 12 * * *":[
+			"etems.schedulers.settlement_notifications"
+		]
+	}
+}

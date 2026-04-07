@@ -9,9 +9,9 @@
   "category",
   "date",
   "amount",
+  "approve_amount",
   "remarks",
-  "bill",
-  "reimbursable"
+  "bill"
  ],
  "fields": [
   {
@@ -19,19 +19,22 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Category",
-   "options": "Expense Category"
+   "options": "Expense Category",
+   "reqd": 1
   },
   {
    "fieldname": "date",
    "fieldtype": "Date",
    "in_list_view": 1,
-   "label": "Date"
+   "label": "Date",
+   "reqd": 1
   },
   {
    "fieldname": "amount",
    "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Amount"
+   "label": "Amount",
+   "reqd": 1
   },
   {
    "fieldname": "remarks",
@@ -44,18 +47,18 @@
    "label": "Bill"
   },
   {
-   "default": "0",
-   "fieldname": "reimbursable",
-   "fieldtype": "Check",
+   "fieldname": "approve_amount",
+   "fieldtype": "Currency",
    "in_list_view": 1,
-   "label": "Reimbursable"
+   "label": "Approve Amount",
+   "read_only_depends_on": "eval:frappe.user.has_role(\"Employee\") || frappe.user.has_role(\"Reporting Manager\")"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "istable": 1,
  "links": [],
- "modified": "2026-03-23 16:29:28.092348",
+ "modified": "2026-03-30 17:52:30.109798",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Expense Details",

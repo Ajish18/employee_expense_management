@@ -1,0 +1,44 @@
+{
+ "add_total_row": 0,
+ "add_translate_data": 0,
+ "columns": [],
+ "creation": "2026-03-29 21:01:01.032440",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": null,
+ "modified": "2026-03-29 21:08:39.031960",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Unsettled Advances",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "Select\ncount(case when status=\"Approved\" then 1 end) as \"Unsettled Expense Claim\",\ncount(case when advance_taken=0 then 1 end) as \"Unsettled Advance\"\nfrom `tabExpense Claim`;",
+ "ref_doctype": "Expense Claim",
+ "report_name": "Unsettled Advances",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Employee"
+  },
+  {
+   "role": "Reporting Manager"
+  },
+  {
+   "role": "Finance Manager"
+  },
+  {
+   "role": "Finance User"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "System Manager"
+  }
+ ],
+ "timeout": 0
+}

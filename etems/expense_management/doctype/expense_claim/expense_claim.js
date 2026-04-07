@@ -26,6 +26,14 @@ frappe.ui.form.on("Expense Claim", {
                 }
             }
         });
+        frm.set_query("travel_request",function(){
+            return{
+                filters: {
+                    expense_claimed: 0,
+                    status: "Approved",
+                }
+            }
+        })
     },
     refresh(frm) {
         if (frm.doc.workflow_state === "Verified" && !frm.doc.verified_by) {
@@ -37,6 +45,9 @@ frappe.ui.form.on("Expense Claim", {
         if (frm.doc.workflow_state === "Approved" && !frm.doc.approved_by) {
             frm.set_value("approved_byuser_id", frappe.session.user)
         }
+    },
+    after_workflow_action: function(frm) {
+        frm.save();
     }
 });
 
@@ -44,6 +55,16 @@ frappe.ui.form.on("Expense Details",{
     amount(frm,cdt,cdn){
         calculate_amount(frm,cdt,cdn)
     },
+    approve_amount(frm,cdt,cdn){
+        let row=locals[cdt][cdn]
+        if(row.approve_amount>row.amount){
+            frappe.msgprint("Approved amount cannot be greater than claimed amount")
+            frm.set_value("approve_amount",0)
+        }
+        else{
+            calculate_approve_amount(frm,cdt,cdn)
+        }
+    }
 });
 
 function calculate_amount(frm,cdt,cdn){
@@ -53,4 +74,13 @@ function calculate_amount(frm,cdt,cdn){
         sum+=row.amount;
     });
     frm.set_value("total_claimed_amount",sum);
+}
+
+function calculate_approve_amount(frm,cdt,cdn){
+    let sum=0;
+    let row=locals[cdt][cdn]
+    frm.doc.expense_details.forEach(row => {
+        sum+=row.approve_amount;
+    });
+    frm.set_value("total_approved_amount",sum);
 }

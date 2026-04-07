@@ -14,13 +14,7 @@ frappe.query_reports["Branch Wise Expense Report"] = {
 			"label": "to Date",
 			"fieldtype": "Date",
 			"reqd": 1,
-		},
-		{
-			"fieldname": "employee",
-			"label": "Employee",
-			"fieldtype": "Link",
-			"options":"Employee Details"
-		},
+		},		
 		{
 			"fieldname": "branch",
 			"label": "Branch",
@@ -40,10 +34,10 @@ frappe.query_reports["Branch Wise Expense Report"] = {
 			"options":"\nDraft\nPending Manager Approval\nPending Finance Verification\nVerified\nApproved\nSettled\nRejected"
 		},
 		{
-			"fieldname": "reimbursement_status",
-			"label": "Reimbursement Status",
-			"fieldtype": "Select",
-			"Options": "\nPending\nPayable\nReceivable\nNot Required",
+			"fieldname": "expense_category",
+			"label": "Expense Category",
+			"fieldtype": "Link",
+			"options": "Expense Category"
 		}
 	],
 };

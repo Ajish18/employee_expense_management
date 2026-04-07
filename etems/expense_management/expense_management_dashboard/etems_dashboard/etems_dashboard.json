@@ -1,0 +1,52 @@
+{
+ "cards": [
+  {
+   "card": "Expense Claim Approved"
+  },
+  {
+   "card": "Expense Claim Approved Amount"
+  },
+  {
+   "card": "Expense Claim Rejected"
+  },
+  {
+   "card": "Pending Manager Approvals TR"
+  },
+  {
+   "card": "Pending with Finance"
+  },
+  {
+   "card": "Pending with Finance TR"
+  },
+  {
+   "card": "Travel Request Approved"
+  },
+  {
+   "card": "Travel Request Rejected"
+  },
+  {
+   "card": "No. Of Expense Claim Unsettled"
+  },
+  {
+   "card": "No. of Unsettled Advance"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Overall Expense",
+   "width": "Full"
+  }
+ ],
+ "creation": "2026-03-29 23:28:10.243928",
+ "dashboard_name": "Etems Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2026-03-29 23:44:42.210665",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Etems Dashboard",
+ "owner": "Administrator"
+}

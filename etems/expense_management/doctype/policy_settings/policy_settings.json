@@ -1,14 +1,14 @@
 {
  "actions": [],
  "allow_rename": 1,
- "creation": "2026-03-23 12:29:00.597649",
+ "creation": "2026-03-30 23:22:21.986095",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "max_advance_amount",
-  "settelment_due_days",
+  "settlement_due_days",
   "remainder_days",
-  "bill_mandatory"
+  "manager_email"
  ],
  "fields": [
   {
@@ -17,9 +17,9 @@
    "label": "Max Advance Amount"
   },
   {
-   "fieldname": "settelment_due_days",
+   "fieldname": "settlement_due_days",
    "fieldtype": "Int",
-   "label": "Settelment Due Days"
+   "label": "Settlement Due Days"
   },
   {
    "fieldname": "remainder_days",
@@ -27,16 +27,17 @@
    "label": "Remainder Days"
   },
   {
-   "default": "0",
-   "fieldname": "bill_mandatory",
-   "fieldtype": "Check",
-   "label": "Bill Mandatory"
+   "fieldname": "manager_email",
+   "fieldtype": "Data",
+   "label": "Manager Email",
+   "options": "Email"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
+ "issingle": 1,
  "links": [],
- "modified": "2026-03-23 14:00:53.810069",
+ "modified": "2026-03-31 11:40:43.144295",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Policy Settings",
@@ -46,10 +47,8 @@
    "create": 1,
    "delete": 1,
    "email": 1,
-   "export": 1,
    "print": 1,
    "read": 1,
-   "report": 1,
    "role": "System Manager",
    "share": 1,
    "write": 1

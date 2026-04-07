@@ -1,0 +1,112 @@
+[
+ {
+  "category_name": "Train",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-03-24 14:48:04.723976",
+  "name": "Train",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Flight",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-03-24 14:48:15.539819",
+  "name": "Flight",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Stay",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-04-01 12:56:10.171954",
+  "name": "Stay",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Breakfast",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-04-01 12:58:44.445719",
+  "name": "Breakfast",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Lunch",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-04-01 12:58:54.722369",
+  "name": "Lunch",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Dinner",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-04-01 12:59:04.919691",
+  "name": "Dinner",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Refreshment Snack",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-04-01 12:59:25.400228",
+  "name": "Refreshment Snack",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Office Expenses",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-04-01 13:00:58.154726",
+  "name": "Office Expenses",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Transport",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 1,
+  "modified": "2026-03-24 14:54:06.897275",
+  "name": "Transport",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Food",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 1,
+  "modified": "2026-04-01 12:58:24.857906",
+  "name": "Food",
+  "old_parent": "",
+  "parent_expense_category": null
+ },
+ {
+  "category_name": "Bus",
+  "docstatus": 0,
+  "doctype": "Expense Category",
+  "is_group": 0,
+  "modified": "2026-03-24 14:47:54.684132",
+  "name": "Bus",
+  "old_parent": "",
+  "parent_expense_category": null
+ }
+]

@@ -1,0 +1,18 @@
+[
+ {
+  "branch_name": "Chennai",
+  "docstatus": 0,
+  "doctype": "Branch",
+  "location": "Chennai",
+  "modified": "2026-03-23 14:56:54.766788",
+  "name": "Chennai"
+ },
+ {
+  "branch_name": "Banglore",
+  "docstatus": 0,
+  "doctype": "Branch",
+  "location": "Banglore India",
+  "modified": "2026-03-23 14:57:09.886760",
+  "name": "Banglore"
+ }
+]
