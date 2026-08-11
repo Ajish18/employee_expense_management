@@ -1,0 +1,36 @@
+{
+ "attach_files": "",
+ "attach_print": 1,
+ "channel": "Email",
+ "condition": "doc.status==\"Settled\"",
+ "condition_type": "Python",
+ "creation": "2026-04-07 13:35:02.988006",
+ "days_in_advance": 0,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Expense Claim",
+ "enabled": 1,
+ "event": "Value Change",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Dear {{doc.employee_id}},</p><br>\n<p>Your Expense Claim for {{doc.name}} has beed Settled.</p>\n\n<p>Regards</p>\n\n<p>Finnace Manager</p>\n",
+ "message_type": "HTML",
+ "minutes_offset": 0,
+ "modified": "2026-04-07 13:38:21.996538",
+ "modified_by": "Administrator",
+ "module": "Expense Management",
+ "name": "Expense Claim Settled",
+ "owner": "Administrator",
+ "print_format": "Expense Claim Print Format",
+ "recipients": [
+  {
+   "receiver_by_document_field": "email"
+  }
+ ],
+ "send_system_notification": 0,
+ "send_to_all_assignees": 0,
+ "sender": "Support",
+ "sender_email": "ajishbenz@gmail.com",
+ "subject": "Expense Claim Settled",
+ "value_changed": "status"
+}

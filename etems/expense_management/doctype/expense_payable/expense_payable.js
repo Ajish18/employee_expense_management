@@ -7,7 +7,7 @@ frappe.ui.form.on("Expense Payable", {
             return{
                 filters: {
                     balance_payable:["!=",0],
-                    status: ['!=', 'Settled']
+                    status: ['!=', 'Settled'],
                 }
             }
         })

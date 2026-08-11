@@ -44,6 +44,12 @@ frappe.query_reports["Expense Claim Summary"] = {
 			"label": "Reimbursement Status",
 			"fieldtype": "Select",
 			"Options": "\nPending\nPayable\nReceivable\nNot Required",
+		},
+		{
+			"fieldname": "group_by_department",
+			"label": "Group by Department",
+			"fieldtype": "Link",
+			"options": "Department"
 		}
 	],
 };

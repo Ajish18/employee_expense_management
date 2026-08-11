@@ -137,8 +137,7 @@
    "fieldname": "travel_request",
    "fieldtype": "Link",
    "label": "Travel Request",
-   "options": "Travel Request",
-   "reqd": 1
+   "options": "Travel Request"
   },
   {
    "fetch_from": "travel_request.purpose",
@@ -191,7 +190,7 @@
   {
    "fieldname": "total_claimed_amount",
    "fieldtype": "Currency",
-   "label": "Total Claimed Amount",
+   "label": "Total Claim Amount",
    "read_only": 1
   },
   {
@@ -290,7 +289,7 @@
    "fieldname": "status",
    "fieldtype": "Select",
    "label": "Status",
-   "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nVerified\nSettled\nRejected",
+   "options": "Draft\nPending Manager Approval\nPending Finance Verification\nApproved\nVerified\nSettled\nRejected\nPartially Settled",
    "read_only": 1,
    "sort_options": 1
   },
@@ -335,7 +334,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-01 12:43:24.564804",
+ "modified": "2026-04-07 13:27:23.147182",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "Expense Claim",

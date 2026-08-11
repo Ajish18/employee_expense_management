@@ -71,9 +71,31 @@
    "link_type": "Report",
    "show_arrow": 0,
    "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Expense Payable",
+   "link_to": "Expense Payable",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
+  },
+  {
+   "child": 0,
+   "collapsible": 1,
+   "indent": 0,
+   "keep_closed": 0,
+   "label": "Expense Receivable",
+   "link_to": "Expense Receivable",
+   "link_type": "DocType",
+   "show_arrow": 0,
+   "type": "Link"
   }
  ],
- "modified": "2026-03-29 23:52:18.469364",
+ "modified": "2026-04-03 16:06:39.559174",
  "modified_by": "Administrator",
  "module": "Expense Management",
  "name": "ETEMS",

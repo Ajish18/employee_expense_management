@@ -55,6 +55,10 @@ frappe.ui.form.on("Expense Details",{
     amount(frm,cdt,cdn){
         calculate_amount(frm,cdt,cdn)
     },
+    expense_details_remove(frm,cdt,cdn){
+        calculate_amount(frm,cdt,cdn)
+    },
+
     approve_amount(frm,cdt,cdn){
         let row=locals[cdt][cdn]
         if(row.approve_amount>row.amount){

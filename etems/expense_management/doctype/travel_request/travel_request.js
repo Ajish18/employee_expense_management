@@ -14,8 +14,10 @@ frappe.ui.form.on("Travel Request", {
 	}
 	},
 	refresh(frm){
+		if(!frappe.user.has_role("Administrator")){
 		if (frappe.user.has_role("Employee")) {
 			frm.set_df_property("advance_amount", "read_only", 1);
 		}
+	}
 	}
 });

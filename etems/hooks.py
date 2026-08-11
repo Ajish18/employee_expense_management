@@ -250,7 +250,7 @@ app_license = "mit"
 # List of apps whose translatable strings should be excluded from this app's translations.
 # ignore_translatable_strings_from = []
 permission_query_conditions = {
-	"Travel Request": "etems.expense_management.doctype.travel_request.travel_request.travel_request_query"
+	"Travel Request": "etems.expense_management.doctype.travel_request.travel_request.travel_request_query",
 }
 fixtures=[
 	# {
@@ -271,7 +271,6 @@ fixtures=[
     {
 		"doctype":"Branch",
 	}
-
 ]
 
 after_install = "etems.install.after_install"
@@ -286,3 +285,9 @@ scheduler_events = {
 		]
 	}
 }
+
+doctype_list_js = {"Travel Request": "travel_request_list.js"}
+
+app_include_js = [
+    "/assets/etems/js/ai_assistant.js"
+]

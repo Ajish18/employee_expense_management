@@ -1,6 +1,8 @@
 # Copyright (c) 2026, ajish and contributors
 # For license information, please see license.txt
 
+from warnings import filters
+
 import frappe
 from frappe import _
 
@@ -12,17 +14,37 @@ def execute(filters=None):
     dictionary and should return columns and data. It is called by the framework
     every time the report is refreshed or a filter is updated.
     """
-    columns = get_columns()
+    columns = get_columns(filters)
     data = get_data(filters)
 
     return columns, data
 
 
-def get_columns() -> list[dict]:
+def get_columns(filters) -> list[dict]:
     """Return columns for the report.
 
     One field definition per column, just like a DocType field definition.
     """
+    if(filters.get("group_by_department")):
+        return[
+            {
+                "label":"Department",
+                "fieldname": "department",
+                "fieldtype": "Link",
+                "options":"Expense Claim"
+            },
+            {
+            "label": "Total Claimed Amount",
+            "fieldname": "total_claimed_amount",
+            "fieldtype": "Currency",
+            },
+            {
+                "label": "Total Approved Amount",
+                "fieldname": "total_approved_amount",
+                "fieldtype": "Currency",
+            },
+        ]
+    
     return [
         {
             "label":"Expense Claim ID",
@@ -103,49 +125,61 @@ def get_data(filters):
 
     The report data is a list of rows, with each row being a list of cell values.
     """
-    conditions = ""
 
-    if filters.get("from_date"):
-        conditions += f" AND ec.creation >= '{filters.get('from_date')}'"
+    if(filters.get("group_by_department")):
+        data=frappe.db.sql(f"""
+            SELECT
+                ec.department,
+                SUM(ec.total_claimed_amount) as total_claimed_amount,
+                SUM(ec.total_approved_amount) as total_approved_amount
+            FROM `tabExpense Claim` ec
+            WHERE ec.department = '{filters.get("group_by_department")}'
+        """, as_dict=True)
+        return data
+    
+    else:
+        conditions = ""
+        if filters.get("from_date"):
+            conditions += f" AND ec.creation >= '{filters.get('from_date')}'"
 
-    if filters.get("to_date"):
-        conditions += f" AND ec.creation <= '{filters.get('to_date')}'"
+        if filters.get("to_date"):
+            conditions += f" AND ec.creation <= '{filters.get('to_date')}'"
 
-    if filters.get("employee"):
-        conditions += f" AND ec.employee_id = '{filters.get('employee')}'"
+        if filters.get("employee"):
+            conditions += f" AND ec.employee_id = '{filters.get('employee')}'"
 
-    if filters.get("branch"):
-        conditions += f" AND ec.branch = '{filters.get('branch')}'"
+        if filters.get("branch"):
+            conditions += f" AND ec.branch = '{filters.get('branch')}'"
 
-    if filters.get("department"):
-        conditions += f" AND ec.department = '{filters.get('department')}'"
+        if filters.get("department"):
+            conditions += f" AND ec.department = '{filters.get('department')}'"
 
-    if filters.get("workflow_status"):
-        conditions += f" AND ec.status = '{filters.get('workflow_status')}'"
+        if filters.get("workflow_status"):
+            conditions += f" AND ec.status = '{filters.get('workflow_status')}'"
 
-    if filters.get("reimbursement_status"):
-        conditions += f" AND ec.settlement_status = '{filters.get('reimbursement_status')}'"
+        if filters.get("reimbursement_status"):
+            conditions += f" AND ec.settlement_status = '{filters.get('reimbursement_status')}'"
 
-    data = frappe.db.sql(f"""
-        SELECT
-            ec.name,
-            ec.creation,
-            ec.employee_id,
-            ec.branch,
-            ec.department,
-            ec.travel_request,
-            ec.total_claimed_amount,
-            ec.total_approved_amount,
-            ec.advance_taken,
-            ec.balance_payable,
-            ec.balance_receivable,
-            ec.settlement_status,
-            ec.status
-        FROM `tabExpense Claim` ec
-        WHERE 1=1 {conditions}
-        ORDER BY ec.creation DESC
-    """, as_dict=True)
+        data = frappe.db.sql(f"""
+            SELECT
+                ec.name,
+                ec.creation,
+                ec.employee_id,
+                ec.branch,
+                ec.department,
+                ec.travel_request,
+                ec.total_claimed_amount,
+                ec.total_approved_amount,
+                ec.advance_taken,
+                ec.balance_payable,
+                ec.balance_receivable,
+                ec.settlement_status,
+                ec.status
+            FROM `tabExpense Claim` ec
+            WHERE 1=1 {conditions}
+            ORDER BY ec.creation DESC
+        """, as_dict=True)
 
-    return data
+        return data
 
 
